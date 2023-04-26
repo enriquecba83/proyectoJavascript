@@ -53,3 +53,50 @@ do {
     console.log('Si desea volver a ingresar presione tecla F5')
 }
 
+//declarando un objeto
+/// forma literal de objetos
+
+const persona = {nombre: 'Enrique', apellido: 'Cativa', edad: 39, dni: 30656185}
+const persona1 = {nombre: 'Alexis', apellido: 'Cativa', edad: 35, dni: 33976162}
+
+/// accedemos a los atributos del objeto
+
+console.log('El dni de ' + persona.nombre + ' es ' + persona.dni + ' y su edad es ' + persona.edad);
+
+console.log('El dni de ' + persona1.nombre + ' es ' + persona1.dni);
+
+persona.edad = 40;
+
+console.log('La edad modificada de ' + persona.nombre + ' es ' + persona.edad);
+
+
+let atributo = 'nombre';
+console.log(persona[atributo]);
+
+//// para recorrer toda la lista de atributos
+
+for (atributo in persona) {
+    console.log(persona[atributo]);
+}
+
+///// CONSTRUCTORES DE OBJETOS
+
+function Productos(nombre,precio,marca) {
+    this.nombre = nombre;
+    this.precio = precio;
+    this.marca = marca;
+}
+
+const producto1 = new Productos('aceite',23.5,'cocinero');
+console.log(producto1);
+const producto2 = new Productos('arroz',13.5,'dos hermanos');
+console.log(producto2);
+
+
+const pokemon1 = new Pokemon('Picachu','electrico',1,'ash','impactrueno',500,200);
+const pokemon2 = new Pokemon('Charmander','fuego',1,'Brock','llamarada',300,150);
+
+pokemon1.atacar('Charmander');
+pokemon1.volverPokebola();
+
+pokemon2.evolucionar('charizard',100);
