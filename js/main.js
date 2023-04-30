@@ -3,37 +3,46 @@ let operador;
 let primerValor;
 let segundoValor;
 let resultado;
-let salir;
-let app;
+let salir = false;
+let calc = false;
+let abmProductos = false;
 
 alert('Bienvenido al Menú de Seleccion de Pre entregas!');
 
 do {
-    opcion = prompt('Ingrese a la Pre entrega que desea /n "1.- Primera pre entrega - Calculadora" /n "2.- Segunda pre entrega - Manejo de Productos" /n "0.- Salir"')
+    opcion = parseInt(prompt('Ingrese a la Pre entrega que desea \n 1.- Primera pre entrega - Calculadora \n 2.- Segunda pre entrega - Manejo de Productos \n 0.- Salir'))
     if (opcion !== 1 && opcion !== 2 && opcion !== 0) {
+        console.log('Entra por el if con opcion: ' + opcion);
         alert('No ha ingresado una opcion válida');
         console.log('Me fui!');
-        salir = 'esc';
     } else {
+        console.log('Entra por el else con opcion: ' + opcion);
+        console.log('1valor de salir es: ' + salir);
         switch (opcion) {
             case 1:
-                app = 'calc';
+                calc = true;
                 break;
             case 2:
-                app = 
+                abmProductos = true;
+                console.log('ingresó por case 2...')
                 break;
             default:
-
+                salir = true;
                 break;
-        }
+        }    
+        console.log('2valor de salir es: ' + salir);
+        console.log('valor de calc es: ' + calc + ' y valor de abmProductos es: ' + abmProductos);
     }
-} while (salir != 'esc') {
-    console.log('Si desea volver a ingresar presione tecla F5')
+    
+} while (salir) {
+    console.log('Si desea volver a ingresar presione tecla F5');
+    salir ='';
 }
 
 
-alert('Bienvenido al Simulador de calculadora!');
+
 if (calc) {
+    alert('Bienvenido al Simulador de calculadora!');
     do {
         operador = prompt('Ingrese el Operador que desea utilizar "+", "-", "*", "/"');
         if (operador !== '+' && operador !== '-' && operador !== '*' && operador !== '/') {
@@ -80,6 +89,9 @@ if (calc) {
     }
 }
 
+if (abmProductos) {
+    alert('Ha ingresado al abmProductos!');
+}
 //declarando un objeto
 /// forma literal de objetos
 
