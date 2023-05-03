@@ -12,12 +12,9 @@ alert('Bienvenido al Menú de Seleccion de Pre entregas!');
 do {
     opcion = parseInt(prompt('Ingrese a la Pre entrega que desea \n 1.- Primera pre entrega - Calculadora \n 2.- Segunda pre entrega - Manejo de Productos \n 0.- Salir'))
     if (opcion !== 1 && opcion !== 2 && opcion !== 0) {
-        console.log('Entra por el if con opcion: ' + opcion);
         alert('No ha ingresado una opcion válida');
         console.log('Me fui!');
     } else {
-        console.log('Entra por el else con opcion: ' + opcion);
-        console.log('1valor de salir es: ' + salir);
         switch (opcion) {
             case 1:
                 calc = true;
@@ -29,9 +26,7 @@ do {
             default:
                 salir = true;
                 break;
-        }    
-        console.log('2valor de salir es: ' + salir);
-        console.log('valor de calc es: ' + calc + ' y valor de abmProductos es: ' + abmProductos);
+        }
     }
     
 } while (salir) {
@@ -91,6 +86,16 @@ if (calc) {
 
 if (abmProductos) {
     alert('Ha ingresado al abmProductos!');
+    do {
+        menu = parseInt(prompt('Ingrese una Opcion válida\n 1.- Agregar Producto\n 2.- Modificar Producto\n 3.- Eliminar Producto\n 4.- Listar productos\n 5.- Salir'));
+        if (menu !== 1 && menu !== 2 && menu !== 3 && menu !== 4 && menu !== 5) {
+            alert('No ha ingresado un operador valido, me voy!');
+            console.log('Me fui!')
+            salir = 'esc';
+        } else {
+            console,log('prueba');
+        }
+    }
 }
 //declarando un objeto
 /// forma literal de objetos
