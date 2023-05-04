@@ -14,17 +14,17 @@ class Producto {
     }
 
     //metodos
-
+    
  agregarProducto() {
     let id = parseInt(prompt('Ingrese ID del Producto:'));
     let nombre = prompt('Ingrese Nombre del Producto:');
     let rubro = prompt('Ingrese Rubro del Producto:');
     let precio = parseFloat(prompt('Ingrese Precio del Producto:'));
-    const Productos = [];
+    //const Productos = [];
 
     if (id && nombre && rubro && precio) {
         let producto = new Producto(id, nombre, rubro, precio);
-        Productos.push(producto);
+        productos.push(producto);
         console.log(`Se agrega el ID ${id}, nombre del producto ${nombre}, rubro ${rubro} y precio ${precio}`);
     } else {
         console.log('Error en datos ingresados');

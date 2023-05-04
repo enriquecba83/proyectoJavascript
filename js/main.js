@@ -89,24 +89,31 @@ if (abmProductos) {
     alert('Ha ingresado al abmProductos!');
     salir = true;
     productos = [];
-    const producto1 = new Producto(3545, 'Notebook Asus i7', 'Notebooks', 250389);
+    const producto0 = new Producto(3545, 'Notebook Asus i7', 'Notebooks', 250389);
+    productos.push(producto0);
+    const producto1 = new Producto(5476, 'PC AllinOne HP i3', 'PC', 180397);
     productos.push(producto1);
-    const producto2 = new Producto(5476, 'PC AllinOne HP i3', 'PC', 180397);
+    const producto2 = new Producto(8749, 'Monitor Samsung 22"', 'Monitores', 63847);
     productos.push(producto2);
-    const producto3 = new Producto(8749, 'Monitor Samsung 22"', 'Monitores', 63847);
+    const producto3 = new Producto(2154, 'Mouse Gamer HyperX', 'Perifericos', 16501);
     productos.push(producto3);
-    const producto4 = new Producto(2154, 'Mouse Gamer HyperX', 'Perifericos', 16501);
-    productos.push(producto3);
-    const producto5 = new Producto(2879, 'Impresora Epson', 'Perifericos', 41999);
+    const producto4 = new Producto(2879, 'Impresora Epson', 'Perifericos', 41999);
     productos.push(producto4);
-    const producto6 = new Producto(1976, 'Teclado Mecanico Logitech', 'Perifericos', 19452);
-    productos.push(producto4);
-    const producto7 = new Producto(8246, 'Monitor HP 24"', 'Monitores', 81255);
-
-    for (i = 0; i > productos.length; i++) {
-        console.log(producto[i]);
+    const producto5 = new Producto(1976, 'Teclado Mecanico Logitech', 'Perifericos', 19452);
+    productos.push(producto5);
+    const producto6 = new Producto(8246, 'Monitor HP 24"', 'Monitores', 81255);
+    productos.push(producto6);
+    
+    console.log('entro en el abm');
+    console.log(productos.length);
+    /*
+    for (let i = 0; i < productos.length; i++) {
+        console.log(productos[i]);
     }
-
+    for(let producto of productos) {
+        console.log(producto);
+      }
+    */  
 
     do {
         menu = parseInt(prompt('Ingrese una Opcion válida\n'   +
@@ -120,14 +127,13 @@ if (abmProductos) {
                                     '0.- Salir'));
         if (menu !== 1 && menu !== 2 && menu !== 3 && menu !== 4 && menu !== 5 && menu !== 6 && menu !== 7 && menu !== 0) {
             alert('No ha ingresado un operador valido, me voy!');
-            console.log('Me fui!')
-            salir = 'esc';
+            console.log('Me fui!');
+            salir = false;
         } else {
             switch (menu){
                 case 1:
-                    function producto(agregarProducto){
-
-                    };
+                    console.log('entro por el case 1');
+                    agregarProducto(productos);
                     break;
                 case 2:
                     break;
