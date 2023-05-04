@@ -4,6 +4,7 @@ let primerValor;
 let segundoValor;
 let resultado;
 let salir = false;
+let exit = true;
 let calc = false;
 let abmProductos = false;
 
@@ -13,25 +14,25 @@ do {
     opcion = parseInt(prompt('Ingrese a la Pre entrega que desea \n 1.- Primera pre entrega - Calculadora \n 2.- Segunda pre entrega - Manejo de Productos \n 0.- Salir'))
     if (opcion !== 1 && opcion !== 2 && opcion !== 0) {
         alert('No ha ingresado una opcion válida');
-        console.log('Me fui!');
+        console.log('Ingrese una opción válida');
     } else {
         switch (opcion) {
             case 1:
                 calc = true;
+                exit = false;
                 break;
             case 2:
                 abmProductos = true;
-                console.log('ingresó por case 2...')
+                exit = false;
                 break;
             default:
-                salir = true;
+                exit = false;
                 break;
         }
     }
     
-} while (salir) {
+} while (exit) {
     console.log('Si desea volver a ingresar presione tecla F5');
-    salir ='';
 }
 
 
@@ -86,15 +87,44 @@ if (calc) {
 
 if (abmProductos) {
     alert('Ha ingresado al abmProductos!');
+    salir = true;
     do {
-        menu = parseInt(prompt('Ingrese una Opcion válida\n 1.- Agregar Producto\n 2.- Modificar Producto\n 3.- Eliminar Producto\n 4.- Listar productos\n 5.- Salir'));
-        if (menu !== 1 && menu !== 2 && menu !== 3 && menu !== 4 && menu !== 5) {
+        menu = parseInt(prompt('Ingrese una Opcion válida\n'   +
+                                    '1.- Agregar Producto\n'   + 
+                                    '2.- Modificar Producto\n' + 
+                                    '3.- Eliminar Producto\n'  + 
+                                    '4.- Listar productos\n'   +
+                                    '5.- Buscar Por ID\n'      +
+                                    '6.- Buscar Por Nombre\n'  +
+                                    '7.- Buscar Por Rubro\n'   +
+                                    '0.- Salir'));
+        if (menu !== 1 && menu !== 2 && menu !== 3 && menu !== 4 && menu !== 5 && menu !== 6 && menu !== 7 && menu !== 0) {
             alert('No ha ingresado un operador valido, me voy!');
             console.log('Me fui!')
             salir = 'esc';
         } else {
-            console,log('prueba');
+            switch (menu){
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    break;
+                default:
+                    salir = false;
+                    break;                            
+            }
         }
+    } while (salir){
+        console.log('Me fui!');
     }
 }
 //declarando un objeto

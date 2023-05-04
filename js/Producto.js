@@ -19,9 +19,18 @@ class Producto{
     }
 
     //metodos
-    agregar = function()
-    {
+        let productos = [];
+        class ListaProductos{
+        static agregarProducto () {
+        let id = parseInt(prompt('Ingrese ID del Producto:'));
+        let nombre = (prompt('Ingrese Nombre del Producto:'));
+        let descripcion = (prompt('Ingrese Descripción del Producto:'));
+        let rubro = (prompt('Ingrese Rubro del Producto:'));
+        let precio = parseFloat(prompt('Ingrese Precio del Producto:'));
 
+        let producto = new Producto(id, nombre, descripcion, rubro, precio);
+        Productos.push(producto);
+    }
     }
 
     quitar = function()
