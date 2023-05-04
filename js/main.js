@@ -88,6 +88,26 @@ if (calc) {
 if (abmProductos) {
     alert('Ha ingresado al abmProductos!');
     salir = true;
+    productos = [];
+    const producto1 = new Producto(3545, 'Notebook Asus i7', 'Notebooks', 250389);
+    productos.push(producto1);
+    const producto2 = new Producto(5476, 'PC AllinOne HP i3', 'PC', 180397);
+    productos.push(producto2);
+    const producto3 = new Producto(8749, 'Monitor Samsung 22"', 'Monitores', 63847);
+    productos.push(producto3);
+    const producto4 = new Producto(2154, 'Mouse Gamer HyperX', 'Perifericos', 16501);
+    productos.push(producto3);
+    const producto5 = new Producto(2879, 'Impresora Epson', 'Perifericos', 41999);
+    productos.push(producto4);
+    const producto6 = new Producto(1976, 'Teclado Mecanico Logitech', 'Perifericos', 19452);
+    productos.push(producto4);
+    const producto7 = new Producto(8246, 'Monitor HP 24"', 'Monitores', 81255);
+
+    for (i = 0; i > productos.length; i++) {
+        console.log(producto[i]);
+    }
+
+
     do {
         menu = parseInt(prompt('Ingrese una Opcion válida\n'   +
                                     '1.- Agregar Producto\n'   + 
@@ -105,6 +125,9 @@ if (abmProductos) {
         } else {
             switch (menu){
                 case 1:
+                    function producto(agregarProducto){
+
+                    };
                     break;
                 case 2:
                     break;
@@ -129,7 +152,7 @@ if (abmProductos) {
 }
 //declarando un objeto
 /// forma literal de objetos
-
+/*
 const persona = { nombre: 'Enrique', apellido: 'Cativa', edad: 39, dni: 30656185 }
 const persona1 = { nombre: 'Alexis', apellido: 'Cativa', edad: 35, dni: 33976162 }
 
@@ -174,3 +197,4 @@ pokemon1.atacar('Charmander');
 pokemon1.volverPokebola();
 
 pokemon2.evolucionar('charizard', 100);
+*/

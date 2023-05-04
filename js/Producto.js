@@ -1,45 +1,65 @@
-class Producto{
+class Producto {
     //atributos
     id;
-    nombreProducto;
-    descripcion;
+    nombre;
     rubro;
-    cantProducto;
-    imagenProducto;
     precio;
 
     //constructor
-    constructor(id,nombreProducto,descripcion,rubro,precio)
-    {
-        this.id             = id;
-        this.nombreProducto = nombreProducto;
-        this.descripcion    = descripcion;
-        this.rubro          = rubro;
-        this.precio         = precio;
+    constructor(id, nombre, rubro, precio) {
+        this.id = id;
+        this.nombre = nombre;
+        this.rubro = rubro;
+        this.precio = precio;
     }
 
     //metodos
-        let productos = [];
-        class ListaProductos{
-        static agregarProducto () {
+
+ agregarProducto() {
+    let id = parseInt(prompt('Ingrese ID del Producto:'));
+    let nombre = prompt('Ingrese Nombre del Producto:');
+    let rubro = prompt('Ingrese Rubro del Producto:');
+    let precio = parseFloat(prompt('Ingrese Precio del Producto:'));
+    const Productos = [];
+
+    if (id && nombre && rubro && precio) {
+        let producto = new Producto(id, nombre, rubro, precio);
+        Productos.push(producto);
+        console.log(`Se agrega el ID ${id}, nombre del producto ${nombre}, rubro ${rubro} y precio ${precio}`);
+    } else {
+        console.log('Error en datos ingresados');
+    }
+}
+
+
+
+/*    function agregarProducto() {
         let id = parseInt(prompt('Ingrese ID del Producto:'));
         let nombre = (prompt('Ingrese Nombre del Producto:'));
         let descripcion = (prompt('Ingrese Descripción del Producto:'));
         let rubro = (prompt('Ingrese Rubro del Producto:'));
         let precio = parseFloat(prompt('Ingrese Precio del Producto:'));
 
-        let producto = new Producto(id, nombre, descripcion, rubro, precio);
-        Productos.push(producto);
-    }
+        if (id && nombre && descripcion && rubro && precio) {
+            let producto = new Producto(id, nombre, descripcion, rubro, precio);
+            Productos.push(producto);
+            console.log(`Se agrega el ID ${id}, nombre del producto ${nombre}, descripcion ${descripcion}, rubro ${rubro} y precio ${precio}`);
+        } else {
+            console.log('Error en datos ingresados');
+        }
     }
 
-    quitar = function()
-    {
 
-    }
 
-    modificar = function()
-    {
-        
-    }
+
+
+
+quitar = function () {
+
+}
+
+modificar = function () {
+}
+}
+*/
 }
