@@ -141,16 +141,21 @@ if (abmProductos) {
                     productox.agregarProducto(productox);
                     break;
                 case 2:
+                    nombre = prompt('Ingrese Nombre del Producto a modificar:');
                     break;
                 case 3:
+                    nombre = prompt('Ingrese Nombre del Producto a eliminar:');
                     break;
                 case 4:
                     break;
                 case 5:
+                    id = parseInt(prompt('Ingrese ID del Producto a Buscar:'));
                     break;
                 case 6:
+                    nombre = prompt('Ingrese Nombre del Producto a Buscar:');
                     break;
                 case 7:
+                    rubro = prompt('Ingrese Rubro del Producto a Buscar:');
                     break;
                 default:
                     salir = false;
