@@ -1,4 +1,5 @@
 //alert('Bienvenido al Simulador!');
+
 let operador;
 let primerValor;
 let segundoValor;
@@ -132,8 +133,12 @@ if (abmProductos) {
         } else {
             switch (menu){
                 case 1:
-                    console.log('entro por el case 1');
-                    agregarProducto(productos);
+                    let id = parseInt(prompt('Ingrese ID del Producto:'));
+                    let nombre = prompt('Ingrese Nombre del Producto:');
+                    let rubro = prompt('Ingrese Rubro del Producto:');
+                    let precio = parseFloat(prompt('Ingrese Precio del Producto:'));
+                    const productox = new Producto(id,nombre,rubro,precio);
+                    productox.agregarProducto(productox);
                     break;
                 case 2:
                     break;
@@ -153,6 +158,10 @@ if (abmProductos) {
             }
         }
     } while (salir){
+        for (let i=0; i < productos.length ;i++){
+            console.log(productos[i]);
+        }
+
         console.log('Me fui!');
     }
 }
