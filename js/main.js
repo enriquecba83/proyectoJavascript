@@ -133,12 +133,16 @@ if (abmProductos) {
         } else {
             switch (menu){
                 case 1:
-                    let id = parseInt(prompt('Ingrese ID del Producto:'));
-                    let nombre = prompt('Ingrese Nombre del Producto:');
-                    let rubro = prompt('Ingrese Rubro del Producto:');
-                    let precio = parseFloat(prompt('Ingrese Precio del Producto:'));
-                    const productox = new Producto(id,nombre,rubro,precio);
-                    productox.agregarProducto(productox);
+                    id = parseInt(prompt('Ingrese ID del Producto:'));
+                    nombre = prompt('Ingrese Nombre del Producto:');
+                    rubro = prompt('Ingrese Rubro del Producto:');
+                    precio = parseFloat(prompt('Ingrese Precio del Producto:'));
+                    if (id && nombre && rubro && precio) {
+                        const producto = new Producto(id,nombre,rubro,precio);
+                        producto.agregarProducto(producto);
+                    } else {
+                        console.log('Error en datos ingresados');
+                    }     
                     break;
                 case 2:
                     nombre = prompt('Ingrese Nombre del Producto a modificar:');
@@ -147,12 +151,14 @@ if (abmProductos) {
                     nombre = prompt('Ingrese Nombre del Producto a eliminar:');
                     break;
                 case 4:
+                    buscarNombre(productos,console.log);
                     break;
                 case 5:
                     id = parseInt(prompt('Ingrese ID del Producto a Buscar:'));
                     break;
                 case 6:
                     nombre = prompt('Ingrese Nombre del Producto a Buscar:');
+                    buscarNombre(nombre);
                     break;
                 case 7:
                     rubro = prompt('Ingrese Rubro del Producto a Buscar:');

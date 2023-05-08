@@ -1,4 +1,4 @@
-agregarProducto(producto);
+agregarProducto(producto)
 {
     productos.push(producto);
 }
