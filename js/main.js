@@ -31,7 +31,7 @@ do {
                 break;
         }
     }
-    
+
 } while (exit) {
     console.log('Si desea volver a ingresar presione tecla F5');
 }
@@ -104,7 +104,7 @@ if (abmProductos) {
     productos.push(producto5);
     const producto6 = new Producto(8246, 'Monitor HP 24"', 'Monitores', 81255);
     productos.push(producto6);
-    
+
     console.log('entro en el abm');
     console.log(productos.length);
     /*
@@ -114,35 +114,35 @@ if (abmProductos) {
     for(let producto of productos) {
         console.log(producto);
       }
-    */  
+    */
 
     do {
-        menu = parseInt(prompt('Ingrese una Opcion válida\n'   +
-                                    '1.- Agregar Producto\n'   + 
-                                    '2.- Modificar Producto\n' + 
-                                    '3.- Eliminar Producto\n'  + 
-                                    '4.- Listar productos\n'   +
-                                    '5.- Buscar Por ID\n'      +
-                                    '6.- Buscar Por Nombre\n'  +
-                                    '7.- Buscar Por Rubro\n'   +
-                                    '0.- Salir'));
+        menu = parseInt(prompt('Ingrese una Opcion válida\n' +
+            '1.- Agregar Producto\n' +
+            '2.- Modificar Producto\n' +
+            '3.- Eliminar Producto\n' +
+            '4.- Listar productos\n' +
+            '5.- Buscar Por ID\n' +
+            '6.- Buscar Por Nombre\n' +
+            '7.- Buscar Por Rubro\n' +
+            '0.- Salir'));
         if (menu !== 1 && menu !== 2 && menu !== 3 && menu !== 4 && menu !== 5 && menu !== 6 && menu !== 7 && menu !== 0) {
             alert('No ha ingresado un operador valido, me voy!');
             console.log('Me fui!');
             salir = false;
         } else {
-            switch (menu){
+            switch (menu) {
                 case 1:
                     id = parseInt(prompt('Ingrese ID del Producto:'));
                     nombre = prompt('Ingrese Nombre del Producto:');
                     rubro = prompt('Ingrese Rubro del Producto:');
                     precio = parseFloat(prompt('Ingrese Precio del Producto:'));
                     if (id && nombre && rubro && precio) {
-                        const producto = new Producto(id,nombre,rubro,precio);
+                        const producto = new Producto(id, nombre, rubro, precio);
                         producto.agregarProducto(producto);
                     } else {
                         console.log('Error en datos ingresados');
-                    }     
+                    }
                     break;
                 case 2:
                     nombre = prompt('Ingrese Nombre del Producto a modificar:');
@@ -151,25 +151,49 @@ if (abmProductos) {
                     nombre = prompt('Ingrese Nombre del Producto a eliminar:');
                     break;
                 case 4:
-                    buscarNombre(productos,console.log);
+                    /*function listarProductos(productos, accion) {
+                        for (const producto of productos) {
+                            accion(producto);
+                        }
+                    }
+                    listarProductos(productos, console.log);*/
+                    ///opcion de foreach
+                    /*productos.forEach(function(producto) {
+                        console.log(producto);
+                    });*/
+                    productos.forEach(producto => {
+                        console.log(producto);
+                    });
                     break;
                 case 5:
-                    id = parseInt(prompt('Ingrese ID del Producto a Buscar:'));
+                    searchId = parseInt(prompt('Ingrese ID del Producto a Buscar:'));
+                    const elementoEncontradoId = produdctos.find((producto) => {return producto.id == searchId});
+                    if (elementoEncontradoId){
+                        console.log(elementoEncontradoId);
+                    } else {
+                        console.log('No se ha encontrado el ID Buscado.');
+                    }
                     break;
                 case 6:
-                    nombre = prompt('Ingrese Nombre del Producto a Buscar:');
-                    buscarNombre(nombre);
+                    searchNombre = prompt('Ingrese Nombre del Producto a Buscar:');
+                    const elementoEncontradoNombre = productos.find((producto) => {return producto.nombre == searchNombre});
+                    if (elementoEncontradoNombre){
+                        console.log(elementoEncontradoNombre);
+                    } else {
+                        console.log('No se ha encontrado el Nombre Buscado.');
+                    }
                     break;
                 case 7:
                     rubro = prompt('Ingrese Rubro del Producto a Buscar:');
+
                     break;
                 default:
                     salir = false;
-                    break;                            
+                    break;
             }
         }
-    } while (salir){
-        for (let i=0; i < productos.length ;i++){
+    } while (salir) {
+        for (let i = 0; i < productos.length; i++) {
             console.log(productos[i]);
         }
 

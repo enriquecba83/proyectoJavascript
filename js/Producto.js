@@ -20,12 +20,7 @@ class Producto {
         console.log(`Se agrega el ID ${id}, nombre del producto ${nombre}, rubro ${rubro} y precio ${precio}`);
         }
 
-    buscarNombre(productos,accion) {
-        for (const producto of productos) {
-            accion(producto);
-        }
-    }
-
+    
 /*    function agregarProducto() {
         let id = parseInt(prompt('Ingrese ID del Producto:'));
         let nombre = (prompt('Ingrese Nombre del Producto:'));
