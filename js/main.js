@@ -145,10 +145,50 @@ if (abmProductos) {
                     }
                     break;
                 case 2:
-                    nombre = prompt('Ingrese Nombre del Producto a modificar:');
+                    const searchId = parseInt(prompt('Ingrese Id del Producto a modificar:'));
+                    if (isNaN(searchId)) {
+                      console.log('El ID ingresado no es válido');
+                    } else if (productos.length === 0) {
+                      console.log('La lista de productos está vacía');
+                    } else {
+                      const elementoId = productos.findIndex(producto => producto.id === searchId);
+                      if (elementoId !== -1) {
+                        const producto = productos[elementoId];
+                        const nuevoNombre = prompt(`Ingrese el nuevo Nombre para el producto con ID ${searchId}:`);
+                        producto.nombre = nuevoNombre;
+                        const nuevoRubro = prompt(`Ingrese el nuevo Rubro para el producto con ID ${searchId}:`);
+                        producto.rubro = nuevoRubro;
+                        const nuevoPrecio = prompt(`Ingrese el nuevo Precio para el producto con ID ${searchId}:`);
+                        producto.precio = nuevoPrecio;
+                        console.log(`El objeto modificado fue: ${JSON.stringify(producto)}`);
+                      } else {
+                        console.log("El objeto no se encontró en la lista de productos.");
+                      }
+                    }
                     break;
                 case 3:
-                    nombre = prompt('Ingrese Nombre del Producto a eliminar:');
+                    /*searchId = parseInt(prompt('Ingrese Id del Producto a eliminar:'));
+                    const elementoId = productos.findIndex(producto => producto.id === searchId);
+                    if (elementoId !== -1) {
+                        const eliminado = productos.splice(elementoId, 1);
+                        console.log(`El objeto eliminado fue: ${eliminado}`);
+                      } else {
+                        console.log("El objeto no se encontró en la lista de productos.");
+                      }*/
+                      searchId = parseInt(prompt('Ingrese Id del Producto a eliminar:'));
+                      if (isNaN(searchId)) {
+                        console.log('El ID ingresado no es válido');
+                      } else if (productos.length === 0) {
+                        console.log('La lista de productos está vacía');
+                      } else {
+                        const elementoId = productos.findIndex(producto => producto.id === searchId);
+                        if (elementoId !== -1) {
+                          const eliminado = productos.splice(elementoId, 1);
+                          console.log(`El objeto eliminado fue: ${JSON.stringify(eliminado)}`);
+                        } else {
+                          console.log("El objeto no se encontró en la lista de productos.");
+                        }
+                      }
                     break;
                 case 4:
                     /*function listarProductos(productos, accion) {
@@ -167,7 +207,7 @@ if (abmProductos) {
                     break;
                 case 5:
                     searchId = parseInt(prompt('Ingrese ID del Producto a Buscar:'));
-                    const elementoEncontradoId = produdctos.find((producto) => {return producto.id == searchId});
+                    const elementoEncontradoId = productos.find((producto) => {return producto.id == searchId});
                     if (elementoEncontradoId){
                         console.log(elementoEncontradoId);
                     } else {
