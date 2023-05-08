@@ -184,8 +184,13 @@ if (abmProductos) {
                     }
                     break;
                 case 7:
-                    rubro = prompt('Ingrese Rubro del Producto a Buscar:');
-
+                    searchRubro = prompt('Ingrese Rubro de los Productos a Buscar:');
+                    const elementosEncontradosRubro = productos.filter((producto) => producto.rubro.includes(searchRubro));
+                    if (elementosEncontradosRubro){
+                        console.log(elementosEncontradosRubro);
+                    } else {
+                        console.log('No se han encontrado producto dentro del rubro Buscado.');
+                    }
                     break;
                 default:
                     salir = false;
