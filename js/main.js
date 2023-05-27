@@ -12,8 +12,8 @@ let abmProductos = false;
 alert('Bienvenido al Menú de Seleccion de Pre entregas!');
 
 do {
-    opcion = parseInt(prompt('Ingrese a la Pre entrega que desea \n 1.- Primera pre entrega - Calculadora \n 2.- Segunda pre entrega - Manejo de Productos \n 0.- Salir'))
-    if (opcion !== 1 && opcion !== 2 && opcion !== 0) {
+    opcion = parseInt(prompt('Ingrese a la Pre entrega que desea \n 1.- Primera pre entrega - Calculadora \n 2.- Segunda pre entrega - Manejo de Productos \n 3.- Tercera pre entrega - Tercera Entrega \n 0.- Salir'))
+    if (opcion !== 1 && opcion !== 2 && opcion !== 3 && opcion !== 0) {
         alert('No ha ingresado una opcion válida');
         console.log('Ingrese una opción válida');
     } else {
@@ -24,6 +24,10 @@ do {
                 break;
             case 2:
                 abmProductos = true;
+                exit = false;
+                break;
+            case 3:
+                tercera = true;
                 exit = false;
                 break;
             default:
@@ -244,6 +248,63 @@ if (abmProductos) {
 
         console.log('Me fui!');
     }
+}
+
+if (tercera) {
+    const fechaDeHoy = new Date();
+    ////Depende del dia de la semana voy a aplicar descuento, si es sabado o domingo aplico un 20% de descuento
+    switch (fechaDeHoy.getDay()) {
+        case 1:
+            console.log("Hoy es Lunes");
+            break;
+        case 2:
+            console.log("Hoy es Martes");
+            break;
+        case 3:
+            console.log("Hoy es Miercoles");
+            break;
+        case 4:
+            console.log("Hoy es Jueves");
+            break;
+        case 5:    
+            console.log("Hoy es Viernes");
+            break;    
+        case 6:
+            console.log("Hoy es Sabado! Aplica descuento!");
+            break;    
+        default:
+            console.log("Hoy es Domingo! Aplica descuento!");
+            break;    
+    }
+    
+    const carrito = 
+    [
+        new Producto(3545, 'Notebook Asus i7', 'Notebooks', 250389),
+        new Producto(5476, 'PC AllinOne HP i3', 'PC', 180397),
+        new Producto(8749, 'Monitor Samsung 22"', 'Monitores', 63847),
+        new Producto(2154, 'Mouse Gamer HyperX', 'Perifericos', 16501),
+        new Producto(2879, 'Impresora Epson', 'Perifericos', 41999),
+        new Producto(1976, 'Teclado Mecanico Logitech', 'Perifericos', 19452),
+        new Producto(8246, 'Monitor HP 24"', 'Monitores', 81255)
+    ]
+
+    function mostrarTabla(){
+        const tabla = document.getElementById('items');
+        tabla.innerHTML = '';
+        let contador = 1;
+
+        carrito.forEach((item) => {
+            tabla.innerHTML = tabla.innerHTML +
+                                `<tr>
+                                    <th>${producto.nombre}</th>
+                                    <td>${producto.rubro}</td>
+                                    <td>${producto.precio}</td>
+                                </tr>`;
+            counter ++;
+        });
+    }
+
+    mostrarTabla();
 }
 //declarando un objeto
 /// forma literal de objetos
