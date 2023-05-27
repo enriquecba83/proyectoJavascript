@@ -277,7 +277,7 @@ if (tercera) {
             break;    
     }
     
-    const carrito = 
+    /*const carrito = 
     [
         new Producto(3545, 'Notebook Asus i7', 'Notebooks', 250389),
         new Producto(5476, 'PC AllinOne HP i3', 'PC', 180397),
@@ -304,7 +304,58 @@ if (tercera) {
         });
     }
 
-    mostrarTabla();
+    mostrarTabla();*/
+    /*
+    boton.addEventListener('mouseover', () => {
+        console.log('se ejecuto el evento cuando fui encima con el mouse en el elemento');
+    })
+
+    const input = document.getElementById('input1');
+    input1.addEventListener('change', () =>{
+        console.log('presionaste una tecla');
+    })
+
+    const checkbox = document.getElementById('id-checkbox');
+
+    checkbox.addEventListener('click', (evento) => {
+        console.log(evento);
+        evento.preventDefault();
+    });*/
+
+    ///
+    const cuentas = [];
+    const LIMITE_EXT = 500;
+
+    const inputTitular = document.getElementById('titular');
+    const inputContacto = document.getElementById('contacto');
+    const inputSaldo = document.getElementById('saldo');
+    const btnRegistrar = document.getElementById('registrar');
+    const formRegistro = document.getElementById('form-registrar');
+
+    btnRegistrar.addEventListener('click', (evento) => {
+        evento.preventDefault();
+        if (validarInput()) {
+            registrarUsuario();
+            console.log(cuentas);
+            alert('Usuario registrado!, Bienvenido');
+            limpiarFormulario(formRegistro);
+        } else {
+            alert('No se pudo registar el usuario'); 
+        }   
+    });
+
+    function registrarUsuario() {
+        const nuevaCuenta = new Cuenta(inputTitular.value, inputContacto.value, +inputSaldo.value, LIMITE_EXT);
+        cuentas.push(nuevaCuenta);
+    }
+
+    function validarInput() {
+        return inputTitular.value !== '' && inputContacto.value !== '' && inputSaldo.value !=='';
+    }
+
+    function limpiarFormulario(form) {
+        form.reset();
+    }
 }
 //declarando un objeto
 /// forma literal de objetos
