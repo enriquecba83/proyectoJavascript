@@ -113,12 +113,12 @@ function newRow(item)
 
   td.classList.add('font-white');
   td = document.createElement('td');
-  td.textContent = item.producto.precio;
+  td.textContent = item.producto.precio.toLocaleString('es-ES', { style: 'currency', currency: 'ARS' });
   row.appendChild(td);
 
   const subtotal = item.producto.precio * item.cantidad;
   const tdSubtotal = document.createElement('td');
-  tdSubtotal.textContent = subtotal;
+  tdSubtotal.textContent = subtotal.toLocaleString('es-ES', { style: 'currency', currency: 'ARS' });
   row.appendChild(tdSubtotal);
 
   const btnEliminar = document.createElement('button');
@@ -168,8 +168,9 @@ function newRow(item)
   
   ///calculo el total que tengo ahora
   
-  total.innerText = carrito.reduce((acumulador,item) => acumulador + item.producto.precio * item.cantidad,0);
+  const totalCarrito = carrito.reduce((acumulador, item) => acumulador + item.producto.precio * item.cantidad, 0);
 
+  total.innerText = totalCarrito.toLocaleString('es-ES', { style: 'currency', currency: 'ARS' });
 }
 
 
