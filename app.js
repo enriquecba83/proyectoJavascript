@@ -58,6 +58,7 @@ function allEventListeners()
     actualizarTablaCarrito();
     localStorage.setItem('carrito', JSON.stringify(carrito)); //actualizo el carrito en el localStorage
   });
+  
 }
 
 
@@ -124,19 +125,47 @@ function newRow(item)
   btnEliminar.className = 'btn btn-danger';
   btnEliminar.textContent = 'Eliminar';
 
-  btnEliminar.onclick = () => 
+  btnEliminar.onclick = () =>  ///resta 1 a la cantidad del producto y en caso de que tenga cantidad = 1 elimina la fila
   {
-      carrito.splice(posCarrito,1); //posicion y cantidad de elementos
-      actualizarTablaCarrito();
-      localStorage.setItem('carrito',JSON.stringify(carrito));
+    if (item.cantidad > 1) {       
+      item.cantidad--;
+    } else {
+      const index = carrito.indexOf(item);
+      if (index !== -1) {
+        carrito.splice(posCarrito,1);
+      }
+    }
+    actualizarTablaCarrito();
+    localStorage.setItem('carrito',JSON.stringify(carrito));
   }
 
   td = document.createElement('td')
   td.appendChild(btnEliminar);
   row.appendChild(td);
+
+
+  const btnAñadir = document.createElement('button');
+  btnAñadir.className = 'btn btn-success';
+  btnAñadir.textContent = 'Añadir';
+
+  btnAñadir.onclick = () => 
+  {
+      console.log(posCarrito);
+      carrito.includes(posCarrito,item.cantidad++);
+      actualizarTablaCarrito();
+      localStorage.setItem('carrito',JSON.stringify(carrito));
+  }
+
+  td = document.createElement('td')
+  td.appendChild(btnAñadir);
+  row.appendChild(td);
+
+
   tabla.appendChild(row); ///le agrego al tbody una nueva fila
   btnVaciar.removeAttribute('disabled');
 
+
+  
   ///calculo el total que tengo ahora
   
   total.innerText = carrito.reduce((acumulador,item) => acumulador + item.producto.precio * item.cantidad,0);
